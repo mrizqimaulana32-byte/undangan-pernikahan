@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" stroke="#d4af37" stroke-width="1.2" stroke-linecap="round">
+  <!-- Batang melengkung -->
+  <path d="M4 4 C30 6, 50 20, 60 44 C68 62, 86 70, 116 72" />
+  <path d="M4 4 C6 30, 20 50, 44 60 C62 68, 70 86, 72 116" />
+  <!-- Daun -->
+  <path d="M28 24 C36 14, 48 14, 54 22 C46 30, 36 30, 28 24 Z" fill="#d4af37" fill-opacity="0.35" />
+  <path d="M24 36 C16 30, 14 18, 22 12 C28 22, 30 30, 24 36 Z" fill="#f5e6a8" fill-opacity="0.25" />
+  <path d="M60 56 C70 52, 80 56, 84 66 C74 70, 64 66, 60 56 Z" fill="#d4af37" fill-opacity="0.35" />
+  <path d="M56 70 C52 80, 56 90, 66 92 C68 82, 64 74, 56 70 Z" fill="#f5e6a8" fill-opacity="0.25" />
+  <!-- Bunga kecil -->
+  <circle cx="40" cy="40" r="3" fill="#f5e6a8" fill-opacity="0.6" />
+  <circle cx="82" cy="82" r="2.5" fill="#f5e6a8" fill-opacity="0.6" />
+</svg>

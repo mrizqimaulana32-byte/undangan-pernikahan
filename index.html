@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== COVER ===================== -->
+  <section id="cover" class="cover">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+    <div class="cover-branch branch-l" aria-hidden="true"></div>
+    <div class="cover-branch branch-r" aria-hidden="true"></div>
+    <span class="sparkle s1" aria-hidden="true"></span>
+    <span class="sparkle s2" aria-hidden="true"></span>
+    <span class="sparkle s3" aria-hidden="true"></span>
+    <span class="sparkle s4" aria-hidden="true"></span>
+
+    <p class="eyebrow">The Wedding Of</p>
+    <h1 class="script title-lg">amelia &amp; yusuf</h1>
+    <p class="date-text">Sabtu, 15 Januari 2027</p>
+
+    <!-- GANTI NAMA & TANGGAL DI ATAS SESUAI DATA ANDA -->
+    <button id="open-btn" class="btn-gold">Buka Undangan</button>
+  </section>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="content" class="content hidden">
+
+    <!-- HERO FOTO -->
+    <section class="section hero reveal">
+      <!-- GANTI FOTO: ganti src di bawah ini dengan foto pasangan Anda -->
+      <div class="photo-oval photo-hero">
+        <img src="assets/images/hero.jpg" alt="Foto pasangan" onerror="this.style.display='none'" />
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section reveal">
+      <p class="eyebrow">Menuju Hari Bahagia</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><span id="cd-days">00</span><small>Hari</small></div>
+        <div class="cd-box"><span id="cd-hours">00</span><small>Jam</small></div>
+        <div class="cd-box"><span id="cd-mins">00</span><small>Menit</small></div>
+        <div class="cd-box"><span id="cd-secs">00</span><small>Detik</small></div>
+      </div>
+    </section>
+
+    <!-- MEMPELAI -->
+    <section class="section reveal">
+      <p class="eyebrow">Kedua Mempelai</p>
+
+      <div class="couple">
+        <!-- FOTO MEMPELAI WANITA: ganti src ke foto Anda -->
+        <div class="photo-oval">
+          <img src="assets/images/wanita.jpg" alt="Mempelai Wanita" onerror="this.style.display='none'" />
+        </div>
+        <h2 class="script name">Ns. Amelia Salsabila, S.Kep</h2>
+        <p class="parents">Putri dari<br />Bapak Wakhrun, S.Kom M.Kom &amp; Ibu prof. Ningsih M.pd</p>
+      </div>
+
+      <p class="script and-text">dan</p>
+
+      <div class="couple">
+        <!-- FOTO MEMPELAI PRIA: ganti src ke foto Anda -->
+        <div class="photo-oval">
+          <img src="assets/images/pria.jpg" alt="Mempelai Pria" onerror="this.style.display='none'" />
+        </div>
+        <h2 class="script name">Ns. Yusuf Johantoro, S.Kep</h2>
+        <p class="parents">Putra dari<br />Bapak &amp; Ibu </p>
+      </div>
+    </section>
+
+    <!-- LOVE STORY -->
+    <section class="section reveal">
+      <p class="eyebrow">Love Story</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-year">2021</span>
+          <p>Pertama kali bertemu di sebuah acara kampus.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2023</span>
+          <p>Memulai perjalanan cinta dengan saling mengenal lebih dekat.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">2026</span>
+          <p>Memutuskan untuk melangkah ke jenjang pernikahan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAIL ACARA -->
+    <section class="section reveal">
+      <p class="eyebrow">Save The Date</p>
+
+      <div class="event-card">
+        <h3 class="event-title">Akad Nikah</h3>
+        <p>Sabtu, 15 Januari 2027<br />08.00 - 10.00 WIB</p>
+        <p class="muted">Lapangan Olahraga Desa Semingkir</p>
+        <a href="#" class="btn-outline">Lihat Lokasi</a>
+      </div>
+
+      <div class="event-card">
+        <h3 class="event-title">Resepsi</h3>
+        <p>Sabtu, 15 januari 2027<br />11.00 - 14.00 WIB</p>
+        <p class="muted">Lapangan Olahraga Desa Semingkir</p>
+        <a href="#" class="btn-outline">Lihat Lokasi</a>
+      </div>
+
+      <button id="calendar-btn" class="btn-gold">Simpan di Kalender</button>
+    </section>
+
+    <!-- GALERI -->
+    <section class="section reveal">
+      <p class="eyebrow">Photo Gallery</p>
+      <div class="gallery">
+        <!-- TAMBAHKAN FOTO: ganti src tiap item -->
+        <div class="gallery-item"><img src="assets/images/g1.jpg" alt="Galeri 1" onerror="this.style.display='none'" /></div>
+        <div class="gallery-item"><img src="assets/images/g2.jpg" alt="Galeri 2" onerror="this.style.display='none'" /></div>
+        <div class="gallery-item"><img src="assets/images/g3.jpg" alt="Galeri 3" onerror="this.style.display='none'" /></div>
+        <div class="gallery-item"><img src="assets/images/g4.jpg" alt="Galeri 4" onerror="this.style.display='none'" /></div>
+      </div>
+    </section>
+
+    <!-- UCAPAN / RSVP -->
+    <section class="section reveal">
+      <p class="eyebrow">Doa &amp; Ucapan</p>
+      <form class="rsvp" onsubmit="event.preventDefault(); alert('Terima kasih atas ucapannya!'); this.reset();">
+        <input type="text" placeholder="Nama Anda" required />
+        <select required>
+          <option value="">Konfirmasi kehadiran</option>
+          <option>Hadir</option>
+          <option>Tidak Hadir</option>
+        </select>
+        <textarea rows="3" placeholder="Tulis doa & ucapan..."></textarea>
+        <button type="submit" class="btn-gold">Kirim</button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="divider"></div>
+      <p class="script footer-name">Amelia &amp; Yusuf</p>
+      <p class="muted small">Merupakan suatu kehormatan bagi kami atas kehadiran Anda.</p>
+    </footer>
+
+  </main>
+
+    <!-- MUSIK LATAR -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/music/romantis.mp3" type="audio/mpeg" />
+  </audio>
+  <button id="music-btn" class="music-btn" type="button" aria-label="Putar atau matikan musik">♪</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

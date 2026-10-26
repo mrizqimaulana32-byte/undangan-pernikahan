@@ -1,0 +1,483 @@
+/* ===================== VARIABEL WARNA & FONT ===================== */
+:root {
+  --black: #0b0b0b;
+  --black-soft: #141414;
+  --gold: #d4af37;
+  --gold-light: #f5e6a8;
+  --gold-dark: #9a7418;
+  --text: #e9e3d0;
+  --muted: #a89f84;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-sans: 'Montserrat', Arial, sans-serif;
+}
+
+/* ===================== RESET & BASE ===================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-serif);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(212,175,55,0.08), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(212,175,55,0.06), transparent 45%),
+    var(--black);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+body::before {
+  /* Pola garis emas tipis di seluruh latar */
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(212,175,55,0.025) 0 1px, transparent 1px 22px
+  );
+  pointer-events: none;
+}
+
+.hidden { display: none !important; }
+
+/* ===================== COVER ===================== */
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  background:
+    linear-gradient(to bottom, rgba(11,11,11,0.75), rgba(11,11,11,0.95)),
+    url('../assets/images/cover-bg.jpg') center / cover no-repeat,
+    var(--black);
+  transition: opacity 0.8s ease, visibility 0.8s;
+}
+.cover.is-hidden { opacity: 0; visibility: hidden; }
+
+.corner {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background: url('../assets/ornament-corner.svg') no-repeat center / contain;
+  opacity: 0.85;
+}
+.corner-tl { top: 8px; left: 8px; }
+.corner-tr { top: 8px; right: 8px; transform: scaleX(-1); }
+.corner-bl { bottom: 8px; left: 8px; transform: scaleY(-1); }
+.corner-br { bottom: 8px; right: 8px; transform: scale(-1, -1); }
+
+/* ===================== MAIN WRAPPER ===================== */
+.content {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  padding: 24px 20px 40px;
+}
+
+.section {
+  position: relative;
+  padding: 44px 16px;
+  text-align: center;
+}
+.section + .section::before {
+  /* Garis pemisah emas antar section */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ===================== TIPOGRAFI ===================== */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.script {
+  font-family: var(--font-script);
+  color: var(--gold-light);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.title-lg { font-size: 3.6rem; margin-top: 6px; }
+.name { font-size: 2.6rem; margin-top: 18px; }
+.and-text { font-size: 3.6rem; margin: 10px 0; color: var(--gold); }
+.footer-name { font-size: 2.8rem; }
+
+.date-text {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.parents {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; margin-top: 12px; }
+
+/* ===================== FOTO (KAPSUL / OVAL) ===================== */
+/* Kelas .photo-oval dipakai sebagai placeholder dan siap menampung <img> */
+.photo-oval {
+  position: relative;
+  width: 200px;
+  height: 280px;
+  margin: 0 auto;
+  border-radius: 999px;            /* bentuk kapsul */
+  padding: 6px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.3);
+  overflow: hidden;
+}
+.photo-oval img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 999px;
+  display: block;
+}
+/* Latar placeholder hanya tampil bila img tidak ada */
+.photo-oval::after {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border-radius: 999px;
+  background: var(--black-soft);
+  z-index: -1;
+}
+.photo-oval .placeholder-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.photo-hero { width: 240px; height: 340px; }
+
+/* ===================== COUPLE ===================== */
+.couple { margin-bottom: 8px; }
+
+/* ===================== COUNTDOWN ===================== */
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.cd-box {
+  border: 1px solid rgba(212,175,55,0.45);
+  border-radius: 14px;
+  padding: 14px 0;
+  background: rgba(20,20,20,0.7);
+}
+.cd-box span {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+.cd-box small {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===================== TIMELINE ===================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  text-align: left;
+  border-left: 1px solid rgba(212,175,55,0.4);
+  margin-left: 20px;
+  padding-left: 22px;
+}
+.tl-item { position: relative; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px var(--gold);
+}
+.tl-year {
+  font-family: var(--font-script);
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  display: block;
+}
+.tl-item p { color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
+
+/* ===================== EVENT CARD ===================== */
+.event-card {
+  border: 1px solid rgba(212,175,55,0.35);
+  border-radius: 20px;
+  padding: 26px 20px;
+  margin-bottom: 18px;
+  background: linear-gradient(160deg, rgba(30,30,30,0.9), rgba(12,12,12,0.95));
+  box-shadow: inset 0 0 25px rgba(212,175,55,0.05);
+  line-height: 1.7;
+}
+.event-title {
+  font-family: var(--font-script);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+/* ===================== TOMBOL ===================== */
+.btn-gold,
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.btn-gold {
+  border: none;
+  color: var(--black);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  box-shadow: 0 6px 18px rgba(212,175,55,0.25);
+  font-weight: 600;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(212,175,55,0.4); }
+
+.btn-outline {
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  background: transparent;
+  margin-top: 12px;
+}
+.btn-outline:hover { background: rgba(212,175,55,0.12); }
+
+/* ===================== GALERI ===================== */
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.gallery-item {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 999px 999px 16px 16px;  /* setengah kapsul di atas */
+  overflow: hidden;
+  border: 1px solid rgba(212,175,55,0.4);
+  background: var(--black-soft);
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ===================== RSVP FORM ===================== */
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+.rsvp input,
+.rsvp select,
+.rsvp textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(212,175,55,0.35);
+  background: rgba(20,20,20,0.9);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  outline: none;
+}
+.rsvp input:focus,
+.rsvp select:focus,
+.rsvp textarea:focus { border-color: var(--gold); }
+.rsvp .btn-gold { align-self: center; margin-top: 6px; }
+
+/* ===================== FOOTER ===================== */
+.footer {
+  text-align: center;
+  padding: 40px 16px 60px;
+}
+.divider {
+  width: 80px;
+  height: 1px;
+  margin: 0 auto 14px;
+  background: var(--gold);
+}
+
+/* ===================== ANIMASI REVEAL ===================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ===================== RESPONSIVE ===================== */
+@media (min-width: 481px) {
+  body { align-items: flex-start; }
+  .content { border-left: 1px solid rgba(212,175,55,0.15); border-right: 1px solid rgba(212,175,55,0.15); }
+}
+@media (max-width: 360px) {
+  .title-lg { font-size: 2.9rem; }
+  .name { font-size: 2.1rem; }
+  .photo-oval { width: 170px; height: 240px; }
+}
+/* ===================== HIASAN TAMBAHAN ===================== */
+
+/* Ornamen divider di bawah setiap eyebrow */
+.eyebrow::after {
+  content: "";
+  display: block;
+  width: 200px;
+  height: 24px;
+  margin: 12px auto 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 24'%3E%3Cpath d='M0 12H80M120 12H200' stroke='%23d4af37' stroke-width='1' fill='none'/%3E%3Cpath d='M100 3L106 12L100 21L94 12Z' fill='%23d4af37'/%3E%3Ccircle cx='86' cy='12' r='2' fill='%23f5e6a8'/%3E%3Ccircle cx='114' cy='12' r='2' fill='%23f5e6a8'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* Garis emas vertikal di kiri dan kanan layar */
+.content { position: relative; }
+.content::before,
+.content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: repeating-linear-gradient(to bottom, var(--gold) 0 2px, transparent 2px 12px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+.content::before { left: 0; }
+.content::after { right: 0; }
+
+/* Cincin emas luar di sekitar setiap foto oval */
+.photo-oval {
+  outline: 1px solid rgba(212,175,55,0.35);
+  outline-offset: 8px;
+}
+
+/* Bingkai ganda pada kartu acara */
+.event-card { position: relative; }
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+/* Siluet gunung dan perahu di bagian bawah footer */
+.footer { position: relative; overflow: hidden; }
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 90px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 90' preserveAspectRatio='none'%3E%3Cpath d='M0 90V55L60 25L110 50L170 12L230 46L290 22L350 48L400 30V90Z' fill='%23d4af37' fill-opacity='0.18'/%3E%3Cpath d='M0 90V70L120 58L200 72L300 60L400 70V90Z' fill='%23d4af37' fill-opacity='0.12'/%3E%3Cpath d='M250 78L290 78L282 86L258 86Z' fill='%23d4af37' fill-opacity='0.4'/%3E%3C/svg%3E") no-repeat center bottom / 100% 100%;
+  pointer-events: none;
+}
+.footer > * { position: relative; z-index: 1; }
+
+/* Dahan ornamen di tepi cover */
+.cover-branch {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: url('../assets/ornament-corner.svg') no-repeat center / contain;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.branch-l { left: -40px; top: 35%; transform: rotate(90deg); }
+.branch-r { right: -40px; bottom: 30%; transform: rotate(-90deg); }
+
+/* Kilau bintang yang berkedip */
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 8px var(--gold);
+  animation: twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+.s1 { top: 18%; left: 12%; }
+.s2 { top: 30%; right: 14%; animation-delay: 1s; }
+.s3 { bottom: 28%; left: 18%; animation-delay: 2s; }
+.s4 { bottom: 16%; right: 10%; animation-delay: 0.5s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50%      { opacity: 1;   transform: scale(1.3); }
+}
+
+/* ===================== TOMBOL MUSIK ===================== */
+.music-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: rgba(11,11,11,0.8);
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 12px rgba(212,175,55,0.3);
+}
+.music-btn.is-playing { animation: spin 4s linear infinite; }
+.music-btn.is-muted { opacity: 0.5; animation: none; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
